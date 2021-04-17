@@ -1,4 +1,4 @@
-//jshint esversion:6
+
 
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -58,7 +58,6 @@ app.get("/", function(req, res) {
         res.render("list", {listTitle: "Today", newListItems: foundItems});
     }
   });
-
 });
 
 app.get("/:newListName", function(req, res) {
@@ -80,14 +79,9 @@ app.get("/:newListName", function(req, res) {
       }
     }
   });
-
-
-
-
 });
 
 app.post("/", function(req, res){
-
   const itemName = req.body.newItem;
   const listName = req.body.list;
   const item = new Item({
@@ -104,8 +98,6 @@ app.post("/", function(req, res){
       res.redirect("/" + listName);
     });
   }
-
-
 });
 
 app.post("/delete", function(req, res) {
@@ -126,8 +118,6 @@ app.post("/delete", function(req, res) {
       }
     });
   }
-
-
 });
 
 app.get("/about", function(req, res){
